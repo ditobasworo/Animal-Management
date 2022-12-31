@@ -1,0 +1,10 @@
+<odoo>
+  <data>
+
+    <menuitem id="menu_dashboard_animal_management" name="Animal Management"/>
+    <menuitem id="menu_bar_appointment" name="Appointment" parent="menu_dashboard_animal_management"/>
+    <menuitem id="menu_item_appointment" name="Appointment" parent="menu_bar_appointment" action="am_appointment_action"/>
+
+
+  </data>
+</odoo>

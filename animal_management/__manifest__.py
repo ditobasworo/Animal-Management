@@ -10,7 +10,9 @@
     'version': '14.0.1',
     'depends': ['base'],
     'data': [
-        
+        'views/appointment_views.xml',
+        'views/menuitem_views.xml',
+
 
     ],
     'demo': [

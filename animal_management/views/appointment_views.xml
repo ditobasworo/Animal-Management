@@ -1,0 +1,91 @@
+<odoo>
+  <data>
+
+    <record id="am_appointment_tree_view" model="ir.ui.view">
+      <field name="name">am.appointment.tree</field>
+      <field name="model">am.appointment</field>
+      <field name="arch" type="xml">
+        <tree string="Appointment">
+          <field name="name"/>
+          <field name="description"/>
+          <field name="pasien_id"/>
+          <field name="owner_id"/>
+          <field name="petugas_id"/>
+          <field name="dokter_id"/>
+          <field name="service_ids"/>
+          <field name="urgent"/>
+          <field name="start_date"/>
+          <field name="end_date"/>
+          <field name="rencana_kontrol"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="am_appointment_form_view" model="ir.ui.view" >
+      <field name="name">am.appointment.form</field>
+      <field name="model">am.appointment</field>
+      <field name="arch" type="xml">
+        <form string="Appointment Form">
+          <sheet>
+            <group>
+              <group string="Main Info">
+                <field name="name"/>
+                <field name="pasien_id"/>
+                <field name="owner_id"/>
+                <field name="dokter_id"/>
+              </group>
+              <group string="Jadwal">
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="rencana_kontrol"/>
+              </group>
+              <group>
+                <separator string="Koordinator"/>
+                <field name="petugas_id"/>
+                <separator string="Login"/>
+                <field name="email" password="1"/>
+              </group>
+            </group>
+            <group>
+              <field name="urgent"/>
+              <field name="service_ids" />
+              <field name="stage_id" />
+            </group>
+            <group string="Information">
+              <notebook>
+                <page string="Info">
+                  <group>
+                    <field name="description"/>
+                  </group>
+                </page>
+                <page string="Hasil Pemeriksaan">
+                  <group string='Hasil Pemeriksaan'>
+                    <field name="pemeriksaan_line"/>
+                  </group>
+                </page>
+                <page string="Prescriptions">
+                  <group string='Prescription'>
+                    <field name="prescription_line"/>
+                  </group>
+                </page>
+                <page string="Quotation">
+                  <group>
+                    <field name="quotation_line"/>
+                  </group>
+                </page>
+              </notebook>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="am_appointment_action">
+      <field name="name">Appointment</field>
+      <field name="res_model">am.appointment</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>
