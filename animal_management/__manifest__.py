@@ -11,10 +11,11 @@
     'depends': ['base'],
     'data': [
         'views/appointment_views.xml',
+        'views/stage_views.xml',
+        'views/service_views.xml',
         'views/menuitem_views.xml',
-
-
     ],
+    
     'demo': [
 
     ],

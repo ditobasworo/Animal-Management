@@ -18,8 +18,8 @@ class AmAppointment(models.Model):
     email = fields.Char(string='Email', related='petugas_id.login')
 
     urgent = fields.Selection([('Low', 'Low'), ('Medium', 'Medium'), ('High', 'High'), ('Very High', 'Very High')],string='Urgency')
-    service_ids = fields.Char(string='Consultation Service')
-    stage_id = fields.Char(string='Stage')
+    service_ids = fields.Many2many('am.service', string='Consultation Service')
+    stage_id = fields.Many2one('am.stage', string='Stage')
 
     description = fields.Text(string='Keterangan')
 
@@ -30,3 +30,17 @@ class AmAppointment(models.Model):
     quotation_line = fields.Char(string='Quotation')
     
     
+class AmStage(models.Model):
+    _name = 'am.stage'
+    _description = 'Am Stage'
+    
+    name = fields.Char(string='Nama Stage')
+    requirements = fields.Text(string='Reqirements') 
+    sequence = fields.Integer(string='Squence')
+
+class AmService(models.Model):
+    _name = 'am.service'
+    _description = 'Am Service'
+
+    name = fields.Char(string='Service')
+    color = fields.Integer(string='Warna' )

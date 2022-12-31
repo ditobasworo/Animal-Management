@@ -1,10 +1,27 @@
 <odoo>
   <data>
 
-    <menuitem id="menu_dashboard_animal_management" name="Animal Management"/>
-    <menuitem id="menu_bar_appointment" name="Appointment" parent="menu_dashboard_animal_management"/>
-    <menuitem id="menu_item_appointment" name="Appointment" parent="menu_bar_appointment" action="am_appointment_action"/>
+    <menuitem id="menu_dashboard_animal_management" 
+      name="Animal Management"/>
+      
+    <menuitem id="menu_bar_appointment" 
+      name="Appointment" 
+      parent="menu_dashboard_animal_management"/>
 
+    <menuitem id="menu_item_appointment" 
+      name="Appointment" 
+      parent="menu_bar_appointment" 
+      action="am_appointment_action"/>
+
+    <menuitem id="menu_item_stage" 
+      name="Stage" 
+      parent="menu_bar_appointment" 
+      action="am_stage_action"/>
+
+    <menuitem id="menu_item_service" 
+      name="Service" 
+      parent="menu_bar_appointment" 
+      action="am_service_action"/>
 
   </data>
 </odoo>
