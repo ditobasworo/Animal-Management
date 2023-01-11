@@ -10,10 +10,11 @@
     'version': '14.0.1',
     'depends': ['base'],
     'data': [
-        'views/appointment_views.xml',
-        'views/stage_views.xml',
-        'views/service_views.xml',
-        'views/menuitem_views.xml',
+        'views/am_appointment_views.xml',
+        'views/am_stage_views.xml',
+        'views/am_service_views.xml',
+        'views/am_menuitem_views.xml',
+        'views/am_pemeriksaan_views.xml',
     ],
     
     'demo': [
