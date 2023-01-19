@@ -23,9 +23,9 @@ class AmAppointment(models.Model):
 
     description = fields.Text(string='Keterangan')
 
-    pemeriksaan_line = fields.Char(string='Hasil Pemeriksaan')
+    pemeriksaan_line = fields.One2many('am.pemeriksaan','appointment_id', string='Hasil Pemeriksaan')
     
-    prescription_line = fields.Char(string='Prescription')
+    resep_line = fields.One2many('am.resep','appointment_id', string='Prescription')
     
     quotation_line = fields.Char(string='Quotation')
     
@@ -51,7 +51,7 @@ class AmPemeriksaan(models.Model):
 
     name = fields.Char(string="Pemeriksaan ID")
 
-    appointment_id = fields.Many2one ('am.appointment', string='Appointment ID')
+    appointment_id = fields.Many2one('am.appointment', string='Appointment ID')
     pasien_id = fields.Many2one('product.template', string='Pasien ID')
     owner_id = fields.Many2one('res.partner', string='Owner ID')
     dokter_id = fields.Many2one('res.partner', string='Dokter ID')
@@ -67,3 +67,18 @@ class AmPemeriksaan(models.Model):
     prognosa = fields.Selection([('fausta', 'Fausta'), ('dubius', 'Dubius'),('infausta','Infausta')])
     diagnosa = fields.Char(string='Diagnosa')
     tindakan = fields.Char(string='Tindakan')
+
+class AmResep(models.Model):
+    _name = 'am.resep'
+    _description = 'Resep'
+
+    name = fields.Many2one('am.appointment', string="Resep ID")
+    pasien_id = fields.Many2one('product.template', string='Pasien ID')
+    owner_id = fields.Many2one('res.partner', string='Owner ID')
+    date = fields.Datetime(string='Prescription Date',default=fields.Date.context_today)
+    petugas_id = fields.Many2one('res.users', string='Petugas ID')
+    appointment_id = fields.Many2one ('am.appointment', string= 'Appointment ID')
+    farmasi_id = fields.Many2one ('res.partner', string='Farmasi ID')
+    dokter_id = fields.Many2one ('res.partner', string='Dokter ID')
+
+    obat_ids = fields.Many2many('product.template', string='Obat')

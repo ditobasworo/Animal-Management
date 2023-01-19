@@ -12,7 +12,7 @@
           <field name="owner_id"/>
           <field name="petugas_id"/>
           <field name="dokter_id"/>
-          <field name="service_ids"/>
+          <field name="service_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
           <field name="urgent"/>
           <field name="start_date"/>
           <field name="end_date"/>
@@ -60,17 +60,17 @@
                 </page>
                 <page string="Hasil Pemeriksaan">
                   <group string='Hasil Pemeriksaan'>
-                    <field name="pemeriksaan_line"/>
+                    <field name="pemeriksaan_line" nolabel="1"/>
                   </group>
                 </page>
-                <page string="Prescriptions">
-                  <group string='Prescription'>
-                    <field name="prescription_line"/>
+                <page string="Resep">
+                  <group string="Resep">
+                    <field name="resep_line" nolabel="1"/>
                   </group>
                 </page>
                 <page string="Quotation">
                   <group>
-                    <field name="quotation_line"/>
+                    <field name="quotation_line" />
                   </group>
                 </page>
               </notebook>
@@ -80,7 +80,7 @@
       </field>
     </record>
 
-    <record model="ir.actions.act_window" id="am_appointment_action">
+    <record id="am_appointment_action" model="ir.actions.act_window">
       <field name="name">Appointment</field>
       <field name="res_model">am.appointment</field>
       <field name="view_mode">tree,form</field>
